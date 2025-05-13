@@ -1,0 +1,280 @@
+/* Ogólne style */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    background-color: #111;
+    color: #0f0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Nagłówek */
+.terminal-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 1rem 2rem;
+    background-color: #1c1c1c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(0, 255, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 255, 0, 0.2);
+    z-index: 10;
+}
+
+.terminal-btn {
+    color: #0f0;
+    text-decoration: none;
+    margin-left: 15px;
+    border: 1px solid #0f0;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.nav-buttons a {
+    color: #0f0;
+    text-decoration: none;
+    margin-left: 20px;
+    border: 1px solid #0f0;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.nav-buttons a:hover {
+    background-color: #0f0;
+    color: #000;
+}
+
+.nav-buttons a.terminal-btn:last-child {
+    margin-right: 60px;
+}
+
+/* ASCII Art */
+.ascii-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    padding-bottom: 0px;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+.ascii-text {
+    white-space: pre;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #0f0;
+}
+
+.ascii-part {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation-name: wave, blink;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-delay: var(--delay, 0s);
+    animation-duration: 0.8s, var(--blink-duration, 5s);
+    animation-iteration-count: 1, infinite;
+}
+
+@keyframes wave {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+    0%, 97%, 100% {
+        opacity: 1;
+    }
+    98%, 99% {
+        opacity: 0;
+    }
+}
+
+/* Kontener na treść */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin-top:0;
+    margin: 20px auto 0 auto;
+    box-sizing: border-box;
+}
+
+/* Sekcja O mnie */
+.about {
+    width: 100%;
+    max-width: 700px;
+    background-color: #1c1c1c;
+    color: #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Sekcja Portfolio */
+.portfolio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    width: 100%;
+    max-width: 700px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Kafelek Portfolio */
+.portfolio-item {
+    background-color: #1c1c1c;
+    border: 1px solid #0f0;
+    padding: 0px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, z-index 0.3s;
+    z-index: 1;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.profile-photo {
+    width: 400px; /* zakładam, że wcześniej było 200px */
+    height: auto; /* zachowanie proporcji */
+    border-radius: 0; /* brak zaokrągleń */
+    display: block;
+    margin-top: 10px;
+  }
+
+.portfolio-item a {
+    color: #666; /* szary kolor */
+    text-decoration: none; /* bez podkreślenia */
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+/* Rozszerzony aktywny kafelek */
+.portfolio-item.active {
+    position: fixed;
+    top: 120px; /* tu możesz dostosować wysokość od nagłówka */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    margin-top: 12vh;
+    max-width: 700px;
+    height: auto; /* 45% wysokości widoku */
+    overflow: hidden; /* brak scrolla */
+    z-index: 999;
+    background-color: #1c1c1c;
+    box-shadow: 0 0 20px #0f0;
+    padding: 30px;
+    border: 1px solid #0f0;
+    border-radius: 8px;
+}
+
+/* Treść ukryta */
+.portfolio-item .item-content {
+    display: none;
+    margin-top: 10px;
+    color: #ccc;
+}
+
+.portfolio-item.active .item-content {
+    display: block;
+}
+
+/* Nagłówek kafelka */
+.item-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-icon {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+/* Nagłówki */
+h1 {
+    color: #0f0;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+h2, h3 {
+    font-size: 24px;
+    color: #0f0;
+}
+
+.portfolio-item h3 {
+    margin: 0;
+}
+
+
+.project-list {
+    list-style-position: outside;
+    padding-left: 1.5rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #ccc;
+}
+
+.project-list li {
+    position: relative;
+    padding-left: 0.5rem;
+    text-indent: -0.5rem; /* cofnięcie tekstu o tyle co bullet */
+    line-height: 1.6;
+    text-align: left;
+}
+
+.github-link {
+    margin-left: 8px;
+    color: #0f0; /* zielony jak reszta stylu terminala */
+    font-size: 1rem;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.github-link:hover {
+    color: #8f8;
+}
+
+.aligned-list {
+    list-style-type: none;
+    padding-left: 1.2em;
+    margin-left: 0;
+}

@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+
+
+
+<body>
+    <!-- Nagłówek -->
+    <nav class="terminal-header">
+        <div class="title">&gt;&gt;&gt; RM Portfolio Website</div>
+        <div class="nav-buttons">
+            <a href="/blog/" class="terminal-btn">Blog</a>
+            <a href="/ip/" class="terminal-btn">IP</a>
+        </div>
+    </nav>
+
+    <!-- ASCII Art -->
+    <div class="ascii-container">
+    <pre class="ascii-text">
+        <span class="ascii-part" style="animation-delay: 0s; --blink-duration: 6s;"> __      __       .__                                  __                                         ___.          .__  __           ._.</span>
+        <span class="ascii-part" style="animation-delay: 0.2s; --blink-duration: 8s;">/  \    /  \ ____ |  |   ____  ____   _____   ____   _/  |_  ____     _____ ___.__. __  _  __ ____\_ |__   _____|__|/  |_  ____   | |</span>
+        <span class="ascii-part" style="animation-delay: 0.4s; --blink-duration: 4s;">\   \/\/   // __ \|  | _/ ___\/  _ \ /     \_/ __ \  \   __\/  _ \   /     <   |  | \ \/ \/ // __ \| __ \ /  ___/  \   __\/ __ \  | |</span>
+        <span class="ascii-part" style="animation-delay: 0.6s; --blink-duration: 5.7s;"> \        /\  ___/|  |_\  \__(  <_> )  Y Y  \  ___/   |  | (  <_> ) |  Y Y  \___  |  \     /\  ___/| \_\ \\___ \|  ||  | \  ___/   \|</span>
+        <span class="ascii-part" style="animation-delay: 0.8s; --blink-duration: 9s;">  \__/\  /  \___  >____/\___  >____/|__|_|  /\___  >  |__|  \____/  |__|_|  / ____|   \/\_/  \___  >___  /____  >__||__|  \___  >  __</span>
+        <span class="ascii-part" style="animation-delay: 1s; --blink-duration: 10s;">       \/       \/          \/            \/     \/                       \/\/                   \/    \/     \/              \/   \/</span>
+        <!-- Kontynuuj dzielenie na kolejne fragmenty w ten sposób -->
+    </pre>
+    </div>
+
+    <div class="container">
+        <!-- Lewa strona: O mnie -->
+        <section class="about">
+            <h2>Hello!</h2>
+            <p>
+                My name is Robert. I created this website to showcase my work, interests, and projects from both my academic and professional experiences.
+            </p>
+            <p>
+                I have a strong passion for computer science, electronics, networking, and cybersecurity.
+            </p>
+            <p>
+                My journey began in mechatronics high school, where I started with Arduino and later pursued Intelligent Electronics at Wrocław University of Science and Technology. This deepened my interest in embedded systems and software development. During my studies, I also began exploring networking and cybersecurity, as I developed a strong passion for these fields. I work at Zscaler, where I continue to grow in the fields of cybersecurity and networking.
+            </p>
+            <p>
+                I’m skilled in C/C++, Python, Kotling programming and I’ve developed a solid understanding of networking fundamentals and the principles behind the internet. Currently, I work at Zscaler, where I continue to grow in the fields of cybersecurity and networking.
+            </p>
+           
+        </section>
+        
+        <section class="portfolio">
+            <!-- Projekty -->
+            <div class="portfolio-item">
+                <div class="item-header">
+                    <span class="item-icon">💼</span>
+                    <h3 class="item-title">Projects</h3>
+                </div>
+                <div class="item-content">
+                    <p>Here you can find some examples of my electronics and software projects.</p>
+                    <ul class="project-list">
+                        <li>
+                            <strong>Stereo Audio Amplifier PCB board with BT:</strong> Project with ESP32 microcontroller written in C language and placed on 4 layer PCB board. Design to turn every speakear to stereo bluetooth sound system. 
+                            <a href="https://github.com/hubertkulak/BT_ESP32_Speaker" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <strong>Tatry Mountain App:</strong> Mobile Android Application written in Kotlin Jetpack Compose. The application main function is to help people with hiking through Polish Tatra mountains. 
+                            <a href="https://github.com/hubertkulak/tatryapp" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <strong>ESP32 IOT Education System:</strong> Education Platform with ESP32 Microcontroller created to show students how they can create IOT devices. The project collects data from many sensor and displayed them on local ESP32 HTTP server, also from server side user can control LED lights.
+                            <a href="https://github.com/hubertkulak/httpw12n" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <strong>Python Game with pygame:</strong> Simple 2D game developed with python in classic car traffic racer style. Design and written with my collegue from studies. 
+                            <a href="https://github.com/ignacy7312/2d-car-game" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <strong>GUI for RPi IMU system:</strong> GUI written in C++ and QT framework. Uses QThreads to fetch data from many IMU sensors and displayed the values in GUI. Design for science student club.
+                            <a href="https://github.com/hubertkulak/qt_rpi_qui" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        
+            <!-- Doświadczenie -->
+            <div class="portfolio-item">
+                <div class="item-header">
+                    <span class="item-icon">🧠</i></span>
+                    <h3 class="item-title">Experience</h3>
+                </div>
+                <div class="item-content">
+                    <div class="experience-block">
+                        <p><i class="fas fa-briefcase"></i> <strong>Zscaler – Product Support Specialist</strong><br>
+                        <small>(Nov 2024 – Present, Wrocław, hybrid)</small><br><br>
+                        Supporting clients with computer engineering, network configuration, and cybersecurity challenges. Applying and expanding knowledge in Zero Trust architecture and networking.</p>
+            
+                        <p><i class="fas fa-tools"></i> <strong>Creatronic – Electronics Designer</strong><br>
+                        <small>(Jun 2022 – Sep 2022, Głuchołazy)</small><br><br>
+                        Designed electronic devices and LED lighting modules. Prototyped and tested PCBs. Programmed IoT systems on ESP32 using ESP-IDF in C.</p>
+            
+                        <p><i class="fas fa-graduation-cap"></i> <strong>Education</strong></p>
+                        <ul class="aligned-list">
+                            <li><strong>Wrocław University of Science and Technology</strong> – B.Sc. in Intelligent Electronics (Oct 2021 – Feb 2025), GPA: 5.0</li>
+                            <br>
+                            <li><strong>CKZiU Nysa</strong> – Mechatronics Technician (Sep 2016 – May 2020)</li>
+                        </ul>
+
+                        <p><i class="fas fa-certificate"></i> <strong>Certificates</strong></p>
+                        <ul class="aligned-list">
+                            <li>Zscaler Digital Transformation Engineer</li>
+                            <br>
+                            <li>Zscaler Digital Transformation Administrator</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <!-- Passions -->
+            <div class="portfolio-item">
+                <div class="item-header">
+                    <span class="item-icon">📜</span>
+                    <h3 class="item-title">Passions</h3>
+                </div>
+                <div class="item-content">
+                    <p>A lot of crazy stuff...</p>
+                    <img src="{% static 'images/pasja.jpg' %}" alt="Polaris RZR1000" class="profile-photo">
+                </div>
+            </div>
+        
+            <!-- Linki -->
+            <div class="portfolio-item">
+                <div class="item-header">
+                  <span class="item-icon">🔗</span>
+                  <h3 class="item-title">Links</h3>
+                </div>
+                <div class="item-content">
+                  <p>
+                    <a href=" https://github.com/hubertkulak" target="_blank">
+                      <i class="fab fa-github"></i> GitHub
+                    </a><br>
+                    <a href=" https://www.linkedin.com/in/robert-mamala-82b708254/" target="_blank">
+                      <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                  </p>
+                </div>
+              </div>
+        
+        </section>
+    </div>
+
+    <script>
+        const items = document.querySelectorAll('.portfolio-item');
+    
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                // Zamknij inne otwarte
+                items.forEach(i => i.classList.remove('active'));
+                // Otwórz kliknięty
+                item.classList.add('active');
+            });
+        });
+    
+        // Opcjonalne: zamykanie po kliknięciu gdziekolwiek poza aktywnym
+        document.addEventListener('click', (e) => {
+            const activeItem = document.querySelector('.portfolio-item.active');
+            if (activeItem && !activeItem.contains(e.target)) {
+                activeItem.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>

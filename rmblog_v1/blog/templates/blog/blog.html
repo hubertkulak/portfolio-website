@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+    <!-- Rozszerzony nagłówek terminalowy -->
+    <nav class="terminal-header">
+        <div class="title">&gt;&gt;&gt; RM Terminal Blog</div>
+        <div class="nav-buttons">
+            <a href="/" class="terminal-btn">Home</a>
+            <a href="/ip/" class="terminal-btn">IP</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Główna sekcja -->
+        <header>
+            <h1>This is my blog!</h1>
+            <p>created by RM</p>
+        </header>
+
+        <section>
+            {% for post in posts %}
+            <article>
+                <h2><a href="#">{{ post.title }}</a></h2>
+                <p class="date">{{ post.created_at|date:"j E Y" }}</p>
+                <div>
+                    <p>{{ post.body }}</p>
+                    <p>{{ post.content }}</p>
+                </div>
+            </article>
+            {% endfor %}
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'ip/style.css' %}">
+</head>
+<body>
+
+    <!-- Fixed Navigation Header -->
+    <header class="terminal-header">
+        <div class="title">&gt;&gt;&gt; RM IP & DNS Tools</div>
+        <div class="nav-buttons">
+            <a href="/blog/" class="terminal-btn">Blog</a>
+            <a href="/" class="terminal-btn">Home</a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container">
+         <!-- Main header text -->
+        <div class="main-header">
+            <h1>Feel free to use one of this badboyz<span class="dot dot1">.</span><span class="dot dot2">.</span><span class="dot dot3">.</span></h1>
+        </div>
+        
+    
+        <!-- The first IP container (Your IP Address) -->
+        <div class="ip-container">
+            <i class="fas fa-globe-americas" style="font-size: 36px;"></i>
+            <h2>Your IP Address</h2>
+            <p>{{ ip }}</p>
+        </div>
+
+         <!-- The second IP container (Domain IP Addresses) -->
+        <div class="ip-container">
+            <h2>DNS Results for: {{ domain }}</h2>
+            {% if dns_results %}
+                <table>
+                    <tr>
+                        <th>DNS Provider</th>
+                        <th>IP Address(es)</th>
+                    </tr>
+                    {% for provider, ips in dns_results.items %}
+                        <tr>
+                            <td>{{ provider }}</td>
+                            <td>
+                                {% for ip in ips %}
+                                    {{ ip }}<br>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        {% if not forloop.last %}
+                            <tr>
+                                <td colspan="2"><hr class="dns-separator"></td>
+                             </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            {% elif domain %}
+                <p>No DNS results found.</p>
+            {% else %}
+                <p>Enter a domain to check DNS records.</p>
+            {% endif %}
+        </div>
+
+        <div class="ip-container">
+            <i class="fas fa-calculator" style="font-size: 36px;"></i>
+            <h2>IP Calculator</h2>
+        
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="cidr" placeholder="e.g., 192.168.1.0/24" required>
+                <button type="submit">Calculate</button>
+            </form>
+        
+            {% if ip_calc %}
+                {% if ip_calc.error %}
+                    <p style="color: red;">{{ ip_calc.error }}</p>
+                {% else %}
+                    <hr>
+                    <p><strong>Network:</strong> {{ ip_calc.network }}</p>
+                    <p><strong>Netmask:</strong> {{ ip_calc.netmask }}</p>
+                    <p><strong>Broadcast:</strong> {{ ip_calc.broadcast }}</p>
+                    <p><strong>Host Range:</strong> {{ ip_calc.host_min }} - {{ ip_calc.host_max }}</p>
+                    <p><strong>Available Hosts:</strong> {{ ip_calc.hosts }}</p>
+                {% endif %}
+            {% endif %}
+        </div>
+    
+        
+    
+        <!-- The DNS Check Form -->
+        <div class="ip-container">
+            <i class="fas fa-search" style="font-size: 36px;"></i>
+            <h2>Check DNS for Domain</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="domain" placeholder="Enter Domain" required />
+                <button type="submit">Check DNS</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
