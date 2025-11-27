@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9&k6ehntkfmo$c7tt_j2+nq8p$^w0bsvwz5_^spa+xfms14h@3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG =  False
 
-ALLOWED_HOSTS = ['rmamala.website', 'www.rmamala.website']
+ALLOWED_HOSTS = ['rmamala.website', 'www.rmamala.website', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+  
 ]
 
 ROOT_URLCONF = 'rmblog_v1.urls'
@@ -117,13 +118,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+ 
+
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'rmblog_v1/static'),
-]
-
-STATIC_ROOT = BASE_DIR / 'static/'
+STATIC_ROOT =  Path('/home/robertmamala/web/static/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
